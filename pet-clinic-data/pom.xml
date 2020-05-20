@@ -7,7 +7,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>pet-clinit-data</artifactId>
+    <artifactId>pet-clinic-data</artifactId>
 
     <properties>
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
@@ -61,4 +61,10 @@
             </plugin>
         </plugins>
     </build>
+
+  <scm>
+    <connection>scm:git:git://github.com/spring-projects/spring-boot.git/pet-clinic/pet-clinit-data/tags/pet-clinic-0.0.1/pet-clinit-data</connection>
+    <developerConnection>scm:svn:https://github.com/berezkin88/pet-clinic.git/pet-clinit-data/tags/pet-clinic-0.0.1/pet-clinit-data</developerConnection>
+    <url>https://github.com/spring-projects/spring-boot/pet-clinic/pet-clinit-data/tags/pet-clinic-0.0.1/pet-clinit-data</url>
+  </scm>
 </project>

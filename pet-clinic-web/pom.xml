@@ -46,4 +46,10 @@
         </dependency>
     </dependencies>
 
+
+  <scm>
+    <connection>scm:git:git://github.com/spring-projects/spring-boot.git/pet-clinic/pet-clinic-web/tags/pet-clinic-0.0.1/pet-clinic-web</connection>
+    <developerConnection>scm:svn:https://github.com/berezkin88/pet-clinic.git/pet-clinic-web/tags/pet-clinic-0.0.1/pet-clinic-web</developerConnection>
+    <url>https://github.com/spring-projects/spring-boot/pet-clinic/pet-clinic-web/tags/pet-clinic-0.0.1/pet-clinic-web</url>
+  </scm>
 </project>
