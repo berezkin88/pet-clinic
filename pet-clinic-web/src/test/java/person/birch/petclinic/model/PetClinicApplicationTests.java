@@ -1,4 +1,4 @@
-package person.birch.petclinic;
+package person.birch.petclinic.model;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
