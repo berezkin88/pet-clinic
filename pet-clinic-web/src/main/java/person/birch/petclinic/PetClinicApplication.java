@@ -1,4 +1,4 @@
-package person.birch.petclinic.model;
+package person.birch.petclinic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
