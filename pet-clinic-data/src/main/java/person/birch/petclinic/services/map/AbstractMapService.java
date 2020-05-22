@@ -1,20 +1,28 @@
 package person.birch.petclinic.services.map;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import person.birch.petclinic.model.BaseEntity;
 
-public abstract class AbstractMapService<T, ID> {
+import java.util.*;
 
-    protected Map<ID, T> map = new HashMap<>();
+public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+
+    protected Map<Long, T> map = new HashMap<>();
 
     Set<T> findAll() {
         return new HashSet<>(map.values());
     }
 
-    T save(ID id, T object) {
-        map.put(id, object);
+    T save(T object) {
+
+        if (Objects.nonNull(object)) {
+            if (object.getId() == null) {
+                object.setId(getNextId());
+            }
+
+            map.put(object.getId(), object);
+        } else {
+            throw new RuntimeException("Object can't be null");
+        }
 
         return object;
     }
@@ -29,5 +37,18 @@ public abstract class AbstractMapService<T, ID> {
 
     T findById(ID id) {
         return map.get(id);
+    }
+
+    private Long getNextId() {
+
+        Long nextId = null;
+
+        try {
+            nextId = Collections.max(map.keySet()) + 1;
+        } catch (NoSuchElementException exeption) {
+            nextId = 1L;
+        }
+
+        return nextId;
     }
 }
