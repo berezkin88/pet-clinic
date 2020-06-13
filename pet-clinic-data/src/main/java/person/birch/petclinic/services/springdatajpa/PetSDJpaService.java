@@ -6,6 +6,7 @@ import person.birch.petclinic.model.Pet;
 import person.birch.petclinic.repositories.PetRepository;
 import person.birch.petclinic.services.PetService;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -23,7 +24,9 @@ public class PetSDJpaService implements PetService {
 
     @Override
     public Set<Pet> findAll() {
-        return (Set<Pet>) petRepository.findAll();
+        Set<Pet> output = new HashSet<>();
+        petRepository.findAll().forEach(output::add);
+        return output;
     }
 
     @Override

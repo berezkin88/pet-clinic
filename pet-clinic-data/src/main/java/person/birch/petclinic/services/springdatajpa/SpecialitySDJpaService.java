@@ -6,6 +6,7 @@ import person.birch.petclinic.model.Speciality;
 import person.birch.petclinic.repositories.SpecialityRepository;
 import person.birch.petclinic.services.SpecialtyService;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -23,7 +24,9 @@ public class SpecialitySDJpaService implements SpecialtyService {
 
     @Override
     public Set<Speciality> findAll() {
-        return (Set<Speciality>) specialityRepository.findAll();
+        Set<Speciality> output = new HashSet<>();
+        specialityRepository.findAll().forEach(output::add);
+        return output;
     }
 
     @Override

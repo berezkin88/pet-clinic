@@ -1,11 +1,14 @@
 package person.birch.petclinic.services.springdatajpa;
 
+import org.aspectj.weaver.Iterators;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import person.birch.petclinic.model.PetType;
 import person.birch.petclinic.repositories.PetTypeRepository;
 import person.birch.petclinic.services.PetTypeService;
 
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -23,7 +26,9 @@ public class PetTypeSDJpaService implements PetTypeService {
 
     @Override
     public Set<PetType> findAll() {
-        return (Set<PetType>) petTypeRepository.findAll();
+        Set<PetType> output = new HashSet<>();
+        petTypeRepository.findAll().forEach(output::add);
+        return output;
     }
 
     @Override

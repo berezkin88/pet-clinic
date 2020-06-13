@@ -8,6 +8,7 @@ import person.birch.petclinic.repositories.PetRepository;
 import person.birch.petclinic.repositories.PetTypeRepository;
 import person.birch.petclinic.services.OwnerService;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -36,7 +37,9 @@ public class OwnerSDJpaService implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
-        return (Set<Owner>) ownerRepository.findAll();
+        Set<Owner> output = new HashSet<>();
+        ownerRepository.findAll().forEach(output::add);
+        return output;
     }
 
     @Override
