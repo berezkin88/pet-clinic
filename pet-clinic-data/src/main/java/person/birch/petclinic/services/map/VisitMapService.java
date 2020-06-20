@@ -2,7 +2,6 @@ package person.birch.petclinic.services.map;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-import person.birch.petclinic.model.Speciality;
 import person.birch.petclinic.model.Visit;
 import person.birch.petclinic.services.VisitService;
 
