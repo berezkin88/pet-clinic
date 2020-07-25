@@ -8,6 +8,7 @@ import person.birch.petclinic.services.OwnerService;
 import person.birch.petclinic.services.PetService;
 import person.birch.petclinic.services.PetTypeService;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -78,5 +79,10 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
                 .filter(e -> e.getLastName().equals(lastName))
                 .findFirst()
                 .orElse(null);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return null;
     }
 }
