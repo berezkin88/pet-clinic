@@ -23,15 +23,10 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Git checkout
-        uses: actions/checkout@v2
-
-      - name: Deploy to Github Pages
-        uses: peaceiris/actions-gh-pages@v3.7.0-6
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-          exclude_assets: '.github,dir1/**,dir2/**,some.md' #feature in beta
+    - name: Deploy to Github Pages
+      uses: peaceiris/actions-gh-pages@v3.7.0-6
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: master
+        publish_dir: ./docs
+        exclude_assets: '.github,dir1/**,dir2/**,some.md' #feature in beta
