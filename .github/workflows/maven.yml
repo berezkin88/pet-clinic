@@ -32,4 +32,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
-          exclude_assets: 'dir2/**,some.md' #feature in beta
+          #feature in beta
+          exclude_assets: 'dir1,some'
