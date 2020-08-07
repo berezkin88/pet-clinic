@@ -1,0 +1,5 @@
+= Testing document
+
+Here is testing how script is working
+
+include::section.adoc[]
