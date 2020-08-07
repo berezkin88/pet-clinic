@@ -7,6 +7,10 @@ on:
   push:
     branches: [ master ]
 
+env:
+  DOCS_SOURCE_FILE: docs/dir1/some.adoc
+  DOCS_DESTINATION_FILE: docs/dir1/index.html
+
 jobs:
   build:
 
@@ -27,10 +31,16 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@v2
 
-      - name: Build documentation
-        uses: Analog-inc/asciidoctor-action@master
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          shellcommand: "asciidoctor -o docs/dir1/index.html docs/dir1/some.adoc"
+          ruby-version: 2.7
+
+      - name: Install AsciiDoctor
+        uses: reitzig/actions-asciidoctor@v1.0.0
+
+      - name: Build documentation
+        run: asciidoctor -o ${{ env.DOCS_DESTINATION_FILE }} ${{ env.DOCS_SOURCE_FILE }}
 
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3.7.0-6
