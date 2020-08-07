@@ -40,7 +40,10 @@ jobs:
         uses: reitzig/actions-asciidoctor@v1.0.0
 
       - name: Build documentation
-        run: asciidoctor -o ${{ env.DOCS_DESTINATION_FILE }} ${{ env.DOCS_SOURCE_FILE }}
+        run: asciidoctor -o ${DOCS_DESTINATION_FILE} ${DOCS_SOURCE_FILE}
+        env:
+          DOCS_SOURCE_FILE: docs/dir1/some.adoc
+          DOCS_DESTINATION_FILE: docs/dir1/index.html
 
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3.7.0-6
