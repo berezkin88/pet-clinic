@@ -8,8 +8,7 @@ on:
     branches: [ master ]
 
 env:
-  DOCS_SOURCE_FILE: docs/dir1/some.adoc
-  DOCS_DESTINATION_FILE: docs/dir1/index.html
+  TEMP_DIR: tmp
 
 jobs:
   docs-build-and-deploy:
@@ -31,12 +30,15 @@ jobs:
         run: asciidoctor -o ${DOCS_DESTINATION_FILE} ${DOCS_SOURCE_FILE}
         env:
           DOCS_SOURCE_FILE: docs/dir1/some.adoc
-          DOCS_DESTINATION_FILE: docs/dir1/index.html
+          DOCS_DESTINATION_FILE: ${{ env.TEMP_DIR }}/index.html
 
       - name: Deploy to Github Pages
-        uses: peaceiris/actions-gh-pages@v3.7.0-6
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/dir1
-          #feature in beta
-          exclude_assets: 'section.adoc, some.adoc'
+          publish_dir: ./${{ env.TEMP_DIR }}
+
+      - name: Clean up
+        run: |
+          rm -rf ${{ env.TEMP_DIR }}
+          ls -al
