@@ -7,3 +7,11 @@ include::section.adoc[]
 Checking out new build setup
 
 Creating temp directory and pushing from there
+
+Here is the first image:
+
+image::images/blackbox.png[]
+
+Here is the second image:
+
+image::images/business-context.png[]
