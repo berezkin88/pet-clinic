@@ -12,7 +12,8 @@ env:
   DOCS_DESTINATION_FILE: docs/dir1/index.html
 
 jobs:
-  build:
+  docs-build-and-deploy:
+    name: Build and deploy documentation
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
@@ -32,17 +33,10 @@ jobs:
           DOCS_SOURCE_FILE: docs/dir1/some.adoc
           DOCS_DESTINATION_FILE: docs/dir1/index.html
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Git checkout
-        uses: actions/checkout@v2
-
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3.7.0-6
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/dir1
           #feature in beta
-          exclude_assets: 'section.adoc'
+          exclude_assets: 'section.adoc, some.adoc'
