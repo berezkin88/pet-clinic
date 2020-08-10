@@ -1,7 +1,0 @@
-= Testing document
-
-Here is testing how script is working
-
-include::section.adoc[]
-
-Checking out new build setup
