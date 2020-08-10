@@ -34,7 +34,7 @@ jobs:
           DOCS_SOURCE_FILE: ${{ env.SOURCE_DIR }}/some.adoc
           DOCS_DESTINATION_FILE: ${{ env.TEMP_DIR }}/index.html
 
-      # Plantuml needs an absolute path for working with directories
+      # Plantuml needs an absolute path for saving files
       - name: Set paths for Plantuml
         id: setpath
         run: |

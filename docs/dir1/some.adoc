@@ -1,5 +1,7 @@
 = Testing document
 
+:imagesdir: ./images
+
 Here is testing how script is working
 
 include::section.adoc[]
@@ -10,8 +12,8 @@ Creating temp directory and pushing from there
 
 Here is the first image:
 
-image::images/blackbox.png[]
+image::blackbox.png[]
 
 Here is the second image:
 
-image::images/business-context.png[]
+image::business-context.png[]
