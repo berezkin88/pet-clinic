@@ -1,10 +1,11 @@
 = Testing document
 
 :imagesdir: ./images
+:includedir: ./sections
 
 Here is testing how script is working
 
-include::section.adoc[]
+include::{includedir}/section.adoc[]
 
 Checking out new build setup
 
