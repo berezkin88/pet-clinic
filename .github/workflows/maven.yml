@@ -30,9 +30,9 @@ jobs:
   push-docker-image:
     name: Push docker image
     runs-on: ubuntu-latest
-      steps:
-        - name: Git checkout
-          uses: actions/checkout@v2
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
 
-        - name: Get project version
-          run: echo $GITHUB_REF
+      - name: Get project version
+        run: echo $GITHUB_REF
