@@ -5,3 +5,6 @@
 ![Java CI with Maven](https://github.com/berezkin88/pet-clinic/workflows/Java%20CI%20with%20Maven/badge.svg)
 
 sfg pet clinic
+
+## Notes
+- testing dockerfile

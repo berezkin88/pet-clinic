@@ -9,20 +9,30 @@ on:
 
 
 jobs:
-  docs-build-and-deploy:
-    name: Build and deploy documentation
+#  docs-build-and-deploy:
+#    name: Build and deploy documentation
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Git checkout
+#        uses: actions/checkout@v2
+#
+#      - run: chmod +x site-generator.sh
+#
+#      - name: Generate Website
+#        run: ./site-generator.sh
+#
+#      - name: Deploy to Github Pages
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          publish_dir: ./tmp
+
+  push-docker-image:
+    name: Push docker image
     runs-on: ubuntu-latest
-    steps:
-      - name: Git checkout
-        uses: actions/checkout@v2
+      steps:
+        - name: Git checkout
+          uses: actions/checkout@v2
 
-      - run: chmod +x site-generator.sh
-
-      - name: Generate Website
-        run: ./site-generator.sh
-
-      - name: Deploy to Github Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./tmp
+        - name: Get project version
+          run: echo $GITHUB_REF
