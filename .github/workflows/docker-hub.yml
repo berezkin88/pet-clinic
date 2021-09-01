@@ -23,7 +23,7 @@ jobs:
           mvn clean package -Dmaven.test.skip=true -B
           echo ""
           echo ""
-          ls -al /pet-clinic-web
+          ls -al pet-clinic-web
 
 #      - name: Get project version
 #        run: echo "DOCKER_TAG=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
