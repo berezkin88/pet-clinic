@@ -25,4 +25,5 @@ jobs:
 #        with:
 #          github_token: ${{ secrets.GITHUB_TOKEN }}
 #          publish_dir: ./tmp
-        -name: Do nothing
+        - name: Do nothing
+          run: echo "Do nothing"
