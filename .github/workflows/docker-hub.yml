@@ -19,20 +19,24 @@ jobs:
           java-version: 11
 
       - name: Build project
-        run: mvn clean package -Dmaven.test.skip=true -B
+        run: |
+          mvn clean package -Dmaven.test.skip=true -B
+          echo ""
+          echo ""
+          ls -al
 
-      - name: Get project version
-        run: echo "DOCKER_TAG=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+#      - name: Get project version
+#        run: echo "DOCKER_TAG=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
 
-      - name: Login to Docker
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-
-      - name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pet-clinic:${{ env.DOCKER_TAG }}
+#      - name: Login to Docker
+#        uses: docker/login-action@v1
+#        with:
+#          username: ${{ secrets.DOCKERHUB_USERNAME }}
+#          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+#
+#      - name: Build and push
+#        id: docker_build
+#        uses: docker/build-push-action@v2
+#        with:
+#          push: true
+#          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pet-clinic:${{ env.DOCKER_TAG }}
