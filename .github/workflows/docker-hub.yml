@@ -6,7 +6,7 @@ name: CI for pushing to Docker Hub
 on:
   push:
     tags:
-      - '*'
+      - v*
 
 jobs:
   push-docker-image:
