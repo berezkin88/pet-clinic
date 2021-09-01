@@ -18,7 +18,7 @@ jobs:
 
       - name: Get project version
         run: |
-          DOCKER_TAG=${GITHUB_REF#refs/tags/v} >> $GITHUB_ENV
+          DOCKER_TAG=${GITHUB_REF#refs/tags/v}
           echo $DOCKER_TAG
 
       - name: Login to Docker
