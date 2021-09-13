@@ -11,3 +11,4 @@ sfg pet clinic
 - testing webhooks
 - testing push
 - testing annotated tags
+- testing variables
