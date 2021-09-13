@@ -2,8 +2,10 @@ name: CI for pushing to Docker Hub
 
 on:
   push:
-    tags:
-      - v*
+#    tags:
+#      - v*
+    branches:
+      - master
 
 jobs:
   push-docker-image:
